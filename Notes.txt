@@ -1,4 +1,3 @@
-
 Adicionar register local no dockercompose
   
 -----
@@ -14,34 +13,11 @@ Adicionar register local no dockercompose
 
 -----
 
-----------
-docker-compose original:
-
-networks:
-  flowbroker:
-  
-  --------
-
 docker build -t localhost:5009/telegram  .
 
 docker push localhost:5009/telegram
 
-curl -X POST http://188.166.108.52:8000/auth -H 'Content-Type:application/json' -d '{"username": "admin", "passwd" : "Siderius2017a"}'
+curl -X POST http://127.0.0.1:8000/auth -H 'Content-Type:application/json' -d '{"username": "admin", "passwd" : "admin"}'
 
-curl -H Authorization: Bearer ${JWT} http://188.166.108.52:8000/flows/v1/node -H "content-type: application/json" -d "{\"image\": \"localhost:5009/telegram:latest\", \"id\":\"telegram\"}"
+curl -H "Authorization: Bearer ${JWT}" http://localhost:8000/flows/v1/node -H "content-type: application/json" -d "{\"image\": \"localhost:5009/telegram:latest\", \"id\":\"telegram\"}"
 
-
-registry:
-    restart: always
-    image: registry:2
-    ports:
-      - 5009:5000
-    volumes:
-      - /opt/dojot/docker/registry:/var/lib/registry
-    networks:
-      - default
-	  
-	  
-	  curl -H "Authorization: Bearer ${JWT}" http://188.166.108.52:8000/flows/v1/node
--H "content-type: application/json" -d '{"image": "nuness/kelvin:latest",
-"id":"kelvin"}'
