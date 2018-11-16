@@ -1,0 +1,15 @@
+{
+  "name": "dojot-telegram-node",
+  "version": "1.0.0",
+  "description": "Sends message to a telegram bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafael Augusto Scaraficci",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@dojot/flow-node": "^2.0.0-alpha1",
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}

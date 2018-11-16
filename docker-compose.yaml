@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+      - 5009:5000
+    volumes:
+      - /opt/dojot/docker/registry:/var/lib/registry
+    networks:
+      - default
+
